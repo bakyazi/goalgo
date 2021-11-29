@@ -10,33 +10,33 @@ func (t *TrieNode) Insert(text string) {
 }
 
 func (t *TrieNode) insertChars(chars []rune) {
-	if len(chars) == 0 {
-		return
-	}
-
 	if t.Children == nil {
 		t.Children = make(Children)
 	}
-
+	if len(chars) == 0 {
+		t.Children[0] = &TrieNode{}
+		return
+	}
 	char := chars[0]
 	if node, ok := t.Children[char]; ok {
 		node.insertChars(chars[1:])
 	} else {
-		newNode := TrieNode{Children: make(Children)}
+		newNode := TrieNode{}
 		t.Children[char] = &newNode
 		t.Children[char].insertChars(chars[1:])
 	}
 }
 func (t *TrieNode) IsContains(chars []rune) bool {
-	if len(t.Children) == 0 {
+	if _, ok := t.Children[0]; ok {
+		// reach end of one of searching words
 		return true
+	} else if len(chars) == 0 {
+		// not reach end of any word but any letter isn't left
+		return false
 	}
 	if node, ok := t.Children[chars[0]]; !ok {
 		return false
 	} else {
-		if len(chars[1:]) == 0 {
-			return true
-		}
 		return node.IsContains(chars[1:])
 	}
 }

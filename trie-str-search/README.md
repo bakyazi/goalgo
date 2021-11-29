@@ -25,13 +25,15 @@ func main() {
 It generate a trie like below
 
 ```
-           m
-         /   \
-        t     u
-       /     / \
-      e     e   t
-    /      /      \
-   d      d        e
+            head
+            /  \
+           m    u
+         /   \    \
+        t     u     t
+       /     / \     \
+      e     e   t     e 
+    /      /      \     \
+   d      d        e     d
                     \
                      d
 ```
