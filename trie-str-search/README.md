@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-    node := &trie.TrieNode{}
+    trieNode := &trie.TrieNode{}
 
     trieNode.Insert("muted")
     trieNode.Insert("mted")
