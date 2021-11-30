@@ -13,11 +13,12 @@ import (
 )
 
 func main() {
-    trieNode := &trie.TrieNode{}
+    bannedWords := &trie.TrieNode{}
 
-    trieNode.Insert("muted")
-    trieNode.Insert("mted")
-    trieNode.Insert("mued")
+    bannedWords.Insert("muted")
+    bannedWords.Insert("mted")
+    bannedWords.Insert("mued")
+    bannedWords.Insert("uted")
     
 }
 ```
@@ -34,12 +35,16 @@ It generate a trie like below
       e     e   t     e 
     /      /      \     \
    d      d        e     d
-                    \
-                     d
+  /      /           \     \
+ Ø      Ø              d     Ø
+                        \
+                         Ø
 ```
+
+** Ø is end of muted word
 
 Check a string contains any muted words
 
 ```go
-trieNode.LookUp("fsdmuted432423")
+bannedWords.LookUp("fsdmuted432423")
 ```
