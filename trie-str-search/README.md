@@ -43,8 +43,10 @@ It generate a trie like below
 
 ** Ø is end of muted word
 
-Check a string contains any muted words
+Check whether a string contains any muted words or not:
 
 ```go
-bannedWords.LookUp("fsdmuted432423")
+bannedWords.LookUp("fsdmuted432423") // true
+bannedWords.LookUp("something") // false
+bannedWords.LookUp("mute") // false
 ```
