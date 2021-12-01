@@ -1,4 +1,4 @@
-package sortedlist
+package mergeksortedlist
 
 import "container/heap"
 
@@ -6,14 +6,6 @@ type ListNode struct {
 	Val  int
 	Next *ListNode
 }
-
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 
 type ListNodeHeap []*ListNode
 
